@@ -1,22 +1,22 @@
 import React from "react";
 
 const Todo = ({ todo, toggleTodo }) => {
-  const handleTodoClick = () => {
+  const handleClick = () => {
     toggleTodo(todo.id);
   };
 
-
   return (
-    <div>
-      <label>
-          <input 
+    <div style={{ marginBottom: "5px" }}>
+      <label style={{ textDecoration: todo.completed ? "line-through" : "none" }}>
+        <input
           type="checkbox"
-          checked={todo.completed} 
+          checked={todo.completed}
           readOnly
-          onChange={handleTodoClick}
-          />
+          onChange={handleClick}
+          style={{ marginRight: "5px" }}
+        />
+        {todo.name}
       </label>
-      {todo.name}
     </div>
   );
 };
