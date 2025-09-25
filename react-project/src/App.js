@@ -46,11 +46,20 @@ function App() {
     return true;
   });
 
+  // タスク名を更新する関数
+  const updateTodo = (id, newName) => {
+    setTodos((prevTodos) =>
+      prevTodos.map((todo) =>
+        todo.id === id ? { ...todo, name: newName } : todo
+      )
+    );
+  };
+
   return (
     <div className="container">
       <h1>React Todo App</h1>
 
-      <TodoList todos={filteredTodos} toggleTodo={toggleTodo} />
+      <TodoList todos={filteredTodos} toggleTodo={toggleTodo} updateTodo={updateTodo} />
 
       <input
         type="text"
