@@ -44,19 +44,17 @@ function App() {
     setTodos((prevTodos) => prevTodos.filter((todo) => !todo.completed));
   };
 
+  const updateTodo = (id, newName) => {
+    setTodos((prevTodos) =>
+      prevTodos.map((todo) => (todo.id === id ? { ...todo, name: newName } : todo))
+    );
+  };
+
   const filteredTodos = todos.filter((todo) => {
     if (filter === "active") return !todo.completed;
     if (filter === "completed") return todo.completed;
     return true;
   });
-
-  const updateTodo = (id, newName) => {
-    setTodos((prevTodos) =>
-      prevTodos.map((todo) =>
-        todo.id === id ? { ...todo, name: newName } : todo
-      )
-    );
-  };
 
   return (
     <div className="container">
@@ -74,6 +72,9 @@ function App() {
         ref={todoNameRef}
         placeholder="タスクを入力"
         className="todo-input"
+        onKeyDown={(e) => {
+          if (e.key === "Enter") handleAddTodo();
+        }}
       />
       <button onClick={handleAddTodo}>追加</button>
       <button onClick={handleClear} style={{ marginLeft: "5px" }}>
