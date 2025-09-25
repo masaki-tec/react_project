@@ -1,35 +1,33 @@
 import { useState, useRef, useEffect } from "react";
 import TodoList from "./TodoList";
 import { v4 as uuidv4 } from "uuid";
+import "./App.css"; // CSSをインポート
 
 function App() {
-  // 🔹 初回ロード時に localStorage から読み込む
   const getInitialTodos = () => {
     const storedTodos = localStorage.getItem("todos");
     return storedTodos ? JSON.parse(storedTodos) : [];
   };
 
   const [todos, setTodos] = useState(getInitialTodos);
+  const [filter, setFilter] = useState("all");
 
   const todoNameRef = useRef();
 
-  // 🔹 todos が変わるたびに localStorage に保存
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos]);
 
-  // タスクを追加
   const handleAddTodo = () => {
     const name = todoNameRef.current.value.trim();
-    if (name === "") return;
+    if (!name) return;
     setTodos((prevTodos) => [
       ...prevTodos,
-      { id: uuidv4(), name: name, completed: false },
+      { id: uuidv4(), name, completed: false },
     ]);
     todoNameRef.current.value = "";
   };
 
-  // タスク完了状態の切り替え
   const toggleTodo = (id) => {
     setTodos((prevTodos) =>
       prevTodos.map((todo) =>
@@ -38,26 +36,57 @@ function App() {
     );
   };
 
-  // 完了タスクの削除
   const handleClear = () => {
     setTodos((prevTodos) => prevTodos.filter((todo) => !todo.completed));
   };
 
+  const filteredTodos = todos.filter((todo) => {
+    if (filter === "active") return !todo.completed;
+    if (filter === "completed") return todo.completed;
+    return true;
+  });
+
   return (
-    <div style={{ padding: "20px", maxWidth: "400px", margin: "0 auto" }}>
+    <div className="container">
       <h1>React Todo App</h1>
-      <TodoList todos={todos} toggleTodo={toggleTodo} />
+
+      <TodoList todos={filteredTodos} toggleTodo={toggleTodo} />
+
       <input
         type="text"
         ref={todoNameRef}
         placeholder="タスクを入力"
-        style={{ width: "70%", marginRight: "5px" }}
+        className="todo-input"
       />
       <button onClick={handleAddTodo}>追加</button>
       <button onClick={handleClear} style={{ marginLeft: "5px" }}>
         完了タスク削除
       </button>
-      <div style={{ marginTop: "10px" }}>
+
+      {/* フィルターボタン */}
+      <div style={{ marginTop: "15px" }}>
+        <span>表示: </span>
+        <button
+          className={`filter-button ${filter === "all" ? "active" : ""}`}
+          onClick={() => setFilter("all")}
+        >
+          すべて
+        </button>
+        <button
+          className={`filter-button ${filter === "active" ? "active" : ""}`}
+          onClick={() => setFilter("active")}
+        >
+          未完了
+        </button>
+        <button
+          className={`filter-button ${filter === "completed" ? "active" : ""}`}
+          onClick={() => setFilter("completed")}
+        >
+          完了済み
+        </button>
+      </div>
+
+      <div style={{ marginTop: "15px" }}>
         残りのタスク: {todos.filter((todo) => !todo.completed).length}
       </div>
     </div>
