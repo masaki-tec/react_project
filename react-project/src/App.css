@@ -31,3 +31,57 @@
   max-width: 400px;
   margin: 0 auto;
 }
+
+/* Todo.js用のスタイル */
+.todo-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  gap: 10px; /* 左右の要素間の距離を統一 */
+}
+
+.todo-left {
+  display: flex;
+  align-items: center;
+  gap: 5px; /* チェックボックスとタスク名の距離 */
+  flex-shrink: 0;
+}
+
+.todo-right {
+  display: flex;
+  align-items: center;
+  gap: 5px; /* 編集ボタンとゴミ箱の距離 */
+}
+
+.todo-checkbox {
+  margin: 0; /* gapで調整するため余白をリセット */
+}
+
+.todo-name {
+  transition: all 0.2s;
+}
+
+.todo-name.completed {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.todo-button {
+  padding: 2px 5px;
+  cursor: pointer;
+}
+
+.todo-button.cancel {
+  background-color: #ccc;
+}
+
+.todo-edit-input {
+  margin-right: 5px;
+  padding: 2px 5px;
+}
+
+.todo-trash {
+  cursor: pointer;
+  color: red;
+  font-size: 16px;
+}

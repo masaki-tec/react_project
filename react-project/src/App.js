@@ -36,6 +36,10 @@ function App() {
     );
   };
 
+  const deleteTodo = (id) => {
+    setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
+  };
+
   const handleClear = () => {
     setTodos((prevTodos) => prevTodos.filter((todo) => !todo.completed));
   };
@@ -46,7 +50,6 @@ function App() {
     return true;
   });
 
-  // タスク名を更新する関数
   const updateTodo = (id, newName) => {
     setTodos((prevTodos) =>
       prevTodos.map((todo) =>
@@ -59,7 +62,12 @@ function App() {
     <div className="container">
       <h1>React Todo App</h1>
 
-      <TodoList todos={filteredTodos} toggleTodo={toggleTodo} updateTodo={updateTodo} />
+      <TodoList
+        todos={filteredTodos}
+        toggleTodo={toggleTodo}
+        updateTodo={updateTodo}
+        deleteTodo={deleteTodo}
+      />
 
       <input
         type="text"
