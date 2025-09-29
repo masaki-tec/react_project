@@ -25,6 +25,7 @@ https://youtu.be/nRCNL9T3J98?si=nngPrR0v0wI5Jz19
   [![Image from Gyazo](https://i.gyazo.com/29de8bebf89ef057526cf27ffcc23ac4.gif)](https://gyazo.com/29de8bebf89ef057526cf27ffcc23ac4)
 
 - タスクのフィルタリング(すべて / 未完了 / 完了済み)
+  [![Image from Gyazo](https://i.gyazo.com/5922cd109d10bd10466c4df1d740da32.gif)](https://gyazo.com/5922cd109d10bd10466c4df1d740da32)
 
 - ローカルストレージ保存(ブラウザを閉じても保持)
 
