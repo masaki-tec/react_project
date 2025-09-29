@@ -10,11 +10,22 @@ https://youtu.be/nRCNL9T3J98?si=nngPrR0v0wI5Jz19
 
 ## このアプリでできること
 - タスクの追加（追加ボタン / Enterキー）
+  [![Image from Gyazo](https://i.gyazo.com/a8305e70f54fc076ed0d8701cdee6316.gif)](https://gyazo.com/a8305e70f54fc076ed0d8701cdee6316)
+
+- タスクの完了 / 未完了管理（チェックボックスと横線表示）
+  [![Image from Gyazo](https://i.gyazo.com/587e8f344d4aef8d82c9e16d987326f4.gif)](https://gyazo.com/587e8f344d4aef8d82c9e16d987326f4)
+
 - タスクの編集（保存・キャンセル）
+  [![Image from Gyazo](https://i.gyazo.com/357cb641f29e852619c6d8367f5c8a83.gif)](https://gyazo.com/357cb641f29e852619c6d8367f5c8a83)
+
 - タスクの削除（ゴミ箱アイコン）
-- タスクの完了 / 未完了管理（チェックボックス）
-- 完了タスクの一括削除 (完了タスク削除」ボタンでまとめて削除)
+  [![Image from Gyazo](https://i.gyazo.com/4eeff7f63324ca99ddc9e4368a60a4ef.gif)](https://gyazo.com/4eeff7f63324ca99ddc9e4368a60a4ef)
+
+- 完了タスクの一括削除 (チェックボックスと「完了タスク削除」ボタンでまとめて削除)
+  [![Image from Gyazo](https://i.gyazo.com/29de8bebf89ef057526cf27ffcc23ac4.gif)](https://gyazo.com/29de8bebf89ef057526cf27ffcc23ac4)
+
 - タスクのフィルタリング(すべて / 未完了 / 完了済み)
+
 - ローカルストレージ保存(ブラウザを閉じても保持)
 
 ## 自分で追加した機能
